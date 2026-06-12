@@ -1,6 +1,6 @@
 # mm-rs
 
-Simple HFT bot in Rust
+Simple HFT bot in Rust (di-actors implementation)
 
 It's intentilonally is not fully implemented (strategy stub, some methods of exchange connectors are stubs too), but demonstrates actor-based concurrency approach via WS market data subscribtion and processing.
 
@@ -9,7 +9,9 @@ This exact implementation (DI-first) primary made with clean architecture in min
 - the adaptors can be used as dependensies, they are generally simple structs just keeping their names and maybe some clonable/copyable config params
 - the adaptors hide message passing, can be cloned (due to their simple nature) and their async methods can be invoked
 
-Comparing to top-level-actors approach (when we suppose that the actors are globally visible and we allow call those global actors from any part of the code - this is how Erlang/Elixir implements it), this code have some limitations (again because it avoids calling to globally-exposed actors) like necessarity to embed the depencies affecting some behavior flexibility, but brings other benefits like very straightforward dependency graph and execution graph and, of course, all DI benefits. So, it's up to you which approach to choose.
+Comparing to top-level-actors approach (when we suppose that the actors are globally visible and we allow call those global actors from any part of the code - this is how Erlang/Elixir implements it), this code have some limitations (again because it avoids calling to globally-exposed actors) like necessarity to embed the depencies affecting some behavior flexibility, but brings other benefits like very straightforward dependency graph and execution graph and, of course, all DI benefits. 
+
+So, it's up to you which approach to choose: `top-level-actors` or `di-actors`.
 
 
 ## OBSERVATION
