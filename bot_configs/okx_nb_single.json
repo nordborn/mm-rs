@@ -1,0 +1,21 @@
+{
+    "trade_iter_interval_millis": 300,
+    "symbol": {
+        "eg": "okx",
+        "bs": "BTC",
+        "qt": "USDT"
+    },
+    "bs_precision": 6,
+    "qt_precision": 2,
+    "step": 0.0001,
+    "min_order": 1,
+    "max_in_deals": 1000,
+    "prefer_side": "buy",
+    "min_spread_pct": 0.6,
+    "fee_pct": 0.2, 
+    "enh": {
+        "depth_offsetter": {
+            "drop_cumsum": 10
+        }
+    }
+}

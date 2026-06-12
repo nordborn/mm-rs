@@ -1,0 +1,11 @@
+use super::ExmoWs;
+use crate::types::traits::OrderCanceler;
+use anyhow::Result;
+use trading_types::OrderId;
+
+#[async_trait::async_trait]
+impl OrderCanceler for ExmoWs {
+    async fn cancel_order(&self, order_id: &OrderId) -> Result<bool> {
+        self.exmo_connector.cancel_order(order_id).await
+    }
+}

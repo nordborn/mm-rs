@@ -1,0 +1,1 @@
+pub type BotName = String;

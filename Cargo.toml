@@ -1,0 +1,42 @@
+[package]
+name = "mm"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+async-trait = "0.1"
+bytes = "1.11.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+dotenvy = "0.15"
+env_logger = "0.11"
+futures-util = "0.3"
+itertools = "0.14"
+kameo = { version = "0.20", features = ["metrics"] }
+hotpath = { version = "0.16", optional = true }
+log = "0.4"
+redis = "0.32"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.48", features = ["full"] }
+tokio-tungstenite = { version = "0.28", features = ["native-tls"] }
+trading-types = "0.2"
+dyn-clone = "1.0.20"
+url = "2.5"
+chrono= "0.4"
+
+[features]
+hotpath = ["dep:hotpath", "hotpath/hotpath"]
+hotpath-alloc = ["hotpath/hotpath-alloc"]
+hotpath-cpu = ["hotpath/hotpath-cpu"]
+
+[[bin]]
+name = "singlepairbot"
+path = "bin/singlepairbot.rs"
+
+[[bin]]
+name = "multipairbot"
+path = "bin/multipairbot.rs"
+
+[lints.clippy]
+module-inception = "allow"
